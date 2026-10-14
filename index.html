@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f1e9"><meta name="description" content="Invitación a la boda de Mariela Limachi Maquera y Erick, 31 de octubre de 2026">
+<title>Mariela & Erick · Nuestra boda · 31 de octubre de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#56483e;--gold:#ae875c;--paper:#f7f1e9;--cream:#fffaf5}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Montserrat,sans-serif;line-height:1.7}body.lock{overflow:hidden}.wrap{max-width:700px;margin:auto;text-align:center;background:var(--cream);min-height:100vh;box-shadow:0 0 70px #6e4b2910}section{padding:65px 25px;border-bottom:1px solid #e9dccd}h1,h2{font-family:'Playfair Display',serif;font-weight:400}h1{font-size:clamp(40px,10vw,72px);margin:12px 0}h2{font-size:32px;margin:0 0 22px}.script{font-family:'Great Vibes',cursive;color:var(--gold);font-size:52px;line-height:1.2}.eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}.date{font-size:18px;letter-spacing:3px}.btn{display:inline-block;margin:12px 6px;padding:12px 25px;background:var(--gold);border:1px solid var(--gold);border-radius:50px;color:white;text-decoration:none;font:600 12px Montserrat,sans-serif;letter-spacing:1px;cursor:pointer}.btn.alt{background:transparent;color:var(--ink)}.hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 25%,#fff,#f6ecdf)}.flower{font-size:42px;color:var(--gold)}.counter{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.counter div{background:#f0e5d7;border-radius:12px;min-width:72px;padding:10px}.counter b{display:block;font:28px 'Playfair Display',serif}.counter span{font-size:10px;text-transform:uppercase}.cards{display:grid;gap:20px}.card{border:1px solid #dfc9ac;border-radius:16px;padding:24px}.card p{margin:8px 0}.names{font:23px 'Playfair Display',serif}.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}#gate{position:fixed;inset:0;background:#f7f1e9;z-index:20;display:grid;place-items:center;padding:25px;text-align:center}#gate.hidden{display:none}#musicToggle{position:fixed;right:18px;bottom:18px;z-index:10;border:0;border-radius:50%;width:48px;height:48px;background:var(--gold);color:white;font-size:21px;cursor:pointer}footer{padding:45px 20px;font-size:13px}@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="lock">
+<div id="gate"><div><div class="flower">❀</div><p class="eyebrow">Una invitación especial para</p><h2 id="guestGate">Nuestros seres queridos</h2><p>Tenemos el honor de invitarte a nuestra boda</p><button class="btn" id="openInvite">Abrir invitación ♡</button></div></div>
+<main class="wrap">
+<section class="hero"><div class="flower">❀</div><p class="eyebrow">Nos casamos</p><h1 id="coupleHero">Mariela & Erick</h1><p class="date">31 · OCTUBRE · 2026</p><p>Bolivia · Lugar por confirmar</p><p>Con mucho cariño para</p><strong id="guestHero">Nuestros seres queridos</strong><p class="script">¡Acompáñanos!</p></section>
+<section class="reveal"><p class="eyebrow">Nuestra historia continúa</p><h2>El comienzo de un para siempre</h2><p>Hay momentos que se vuelven eternos cuando los compartimos con quienes amamos. Nos encantaría celebrar este día contigo.</p></section>
+<section class="reveal"><p class="eyebrow">Faltan</p><h2>Para nuestro gran día</h2><div class="counter" id="countdown"><div><b>—</b><span>Días</span></div></div></section>
+<section class="reveal"><p class="eyebrow">Con la bendición de nuestros</p><h2>Padres</h2><div class="cards"><div><p class="eyebrow">Padres de la novia</p><p class="names" id="brideParents">Nombres por confirmar</p></div><div><p class="eyebrow">Padres del novio</p><p class="names" id="groomParents">Nombres por confirmar</p></div></div></section>
+<section class="reveal"><p class="eyebrow">Personas especiales</p><h2>Nuestros padrinos</h2><div id="sponsors" class="cards"></div></section>
+<section class="reveal"><p class="eyebrow">Te esperamos</p><h2>Celebración</h2><div class="cards"><div class="card"><div class="script">Ceremonia</div><p id="ceremonyInfo">Lugar y hora por confirmar</p><a class="btn alt" id="ceremonyMap" href="#" target="_blank" rel="noopener noreferrer">Ver ubicación ↗</a></div><div class="card"><div class="script">Recepción</div><p id="receptionInfo">Lugar y hora por confirmar</p><a class="btn alt" id="receptionMap" href="#" target="_blank" rel="noopener noreferrer">Ver ubicación ↗</a></div></div></section>
+<section class="reveal"><p class="eyebrow">Tu presencia es nuestro mejor regalo</p><h2>Confirma tu asistencia</h2><p>Nos ayudaría mucho saber si nos acompañarás.</p><a class="btn" id="rsvp" href="#" target="_blank" rel="noopener noreferrer">Confirmar por WhatsApp</a></section>
+<footer><div class="script">Gracias por ser parte</div><p id="footerNames">Nuestra boda · 31 de octubre de 2026</p></footer>
+</main>
+<button id="musicToggle" aria-label="Activar o pausar música" title="Música">♫</button>
+<audio id="music" loop preload="none"></audio>
+<script>
+// PERSONALIZA AQUÍ. Cambia los textos y los enlaces de ejemplo.
+const CONFIG={
+ novia:'Mariela Limachi Maquera',novio:'Erick',
+ fecha:'2026-10-31T00:00:00-04:00', // Hora provisional: cambia cuando confirmen la ceremonia
+ padresNovia:'Por confirmar',padresNovio:'Por confirmar',
+ padrinos:[{tipo:'Padrinos de religión',nombres:'Por confirmar'},{tipo:'Padrinos de torta',nombres:'Por confirmar'}],
+ ceremonia:{lugar:'Iglesia por confirmar',hora:'Hora por confirmar',mapa:''},
+ recepcion:{lugar:'Salón por confirmar',hora:'Hora por confirmar',mapa:''},
+ whatsapp:'', // Número internacional sin + ni espacios, por ejemplo 5917XXXXXXXX
+ musica:'musica.mp3' // Coloca aquí tu instrumental MP3 autorizado; no se incluye audio
+};
+const $=id=>document.getElementById(id);
+const guest=(new URLSearchParams(location.search).get('n')||'Nuestros seres queridos').trim().slice(0,90);
+const safeGuest=guest||'Nuestros seres queridos';
+$('guestGate').textContent=safeGuest;$('guestHero').textContent=safeGuest;
+$('coupleHero').textContent='Mariela & Erick';$('footerNames').textContent=`${CONFIG.novia} & ${CONFIG.novio} · 31 de octubre de 2026`;
+$('brideParents').textContent=CONFIG.padresNovia;$('groomParents').textContent=CONFIG.padresNovio;
+CONFIG.padrinos.forEach(p=>{const div=document.createElement('div');div.className='card';const label=document.createElement('p');label.className='eyebrow';label.textContent=p.tipo;const names=document.createElement('p');names.className='names';names.textContent=p.nombres;div.append(label,names);$('sponsors').append(div)});
+for(const [key,obj] of [['ceremony',CONFIG.ceremonia],['reception',CONFIG.recepcion]]){const info=$(key+'Info');info.textContent=`${obj.lugar} · ${obj.hora} h`;const link=$(key+'Map');if(obj.mapa&&/^https:\/\//.test(obj.mapa)){link.href=obj.mapa}else{link.removeAttribute('href');link.style.display='none'}}
+if(CONFIG.whatsapp){const msg=`Hola, confirmo mi asistencia a la boda de ${CONFIG.novia} y ${CONFIG.novio}. Invitado: ${safeGuest}.`; $('rsvp').href=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`}else{$('rsvp').removeAttribute('href');$('rsvp').textContent='WhatsApp por configurar'}
+const audio=$('music');audio.src=CONFIG.musica;audio.addEventListener('error',()=>{musicButton.title='Añade musica.mp3 para activar la música';musicButton.textContent='♫'});const musicButton=$('musicToggle');let playing=false;
+async function toggleMusic(){try{if(playing){audio.pause();playing=false}else{await audio.play();playing=true}musicButton.textContent=playing?'❚❚':'♫'}catch(e){musicButton.textContent='♫';playing=false}}
+$('openInvite').addEventListener('click',()=>{$('gate').classList.add('hidden');document.body.classList.remove('lock');toggleMusic()});musicButton.addEventListener('click',toggleMusic);
+function tick(){const diff=Math.max(0,new Date(CONFIG.fecha).getTime()-Date.now());const days=Math.floor(diff/86400000),hours=Math.floor(diff/3600000)%24,minutes=Math.floor(diff/60000)%60,seconds=Math.floor(diff/1000)%60;$('countdown').innerHTML=[['Días',days],['Horas',hours],['Minutos',minutes],['Segundos',seconds]].map(([name,val])=>`<div><b>${String(val).padStart(2,'0')}</b><span>${name}</span></div>`).join('')}tick();setInterval(tick,1000);
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
