@@ -18,6 +18,31 @@
 @media(prefers-reduced-motion:reduce){.sparkle-layer{display:none}}
 
 .rsvp-section{background:linear-gradient(155deg,#fffaf2,#f1dfc5)}.rsvp-card{max-width:530px;margin:20px auto;padding:32px 22px;border:1px solid #cfa96d;border-radius:20px;background:#fffdf8;box-shadow:0 12px 35px #8e6c3c20}.rsvp-guest{font:36px/1.2 'Great Vibes',cursive;color:#74502d;overflow-wrap:anywhere}.rsvp-actions{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:25px}.rsvp-actions button{width:min(100%,340px)}.rsvp-no{border:1px solid #bb9c70;background:#fffdf9;color:#765633;border-radius:100px;padding:14px 24px;cursor:pointer}.rsvp-status{font:22px/1.4 'Cormorant Garamond',serif;color:#664a32}.rsvp-note{font-size:12px;color:#876f53;line-height:1.6}.rsvp-error{color:#8a352d;font-size:13px}.rsvp-card [hidden]{display:none!important}
+
+/* Ajustes de espacios: móvil más compacto, sin alterar RSVP ni música */
+@media (max-width: 600px) {
+  .section { padding: 35px 18px 38px; }
+  .section:before { font-size: 22px; margin-bottom: 7px; }
+  .hero { min-height: auto; padding: 64px 22px 54px; }
+  .hero h1 { margin: 8px 0; }
+  .hero p { margin: 9px auto; }
+  .heading { margin: 5px 0 14px; font-size: 46px; }
+  .bodycopy { margin: 11px auto; line-height: 1.35; }
+  .cards { margin: 14px auto 2px; gap: 11px; }
+  .card { padding: 18px 12px; }
+  .card h3 { margin: 3px 0 7px; }
+  .counter { margin: 16px 0 12px; gap: 6px; }
+  .counter > div { min-width: 65px; padding: 10px 5px; }
+  .counter strong { font-size: 33px; }
+  .rsvp-card { margin: 12px auto 0; padding: 21px 15px; }
+  .rsvp-actions { margin-top: 15px; gap: 9px; }
+  .footer { padding: 27px 15px; }
+}
+@media (max-width: 370px) {
+  .section { padding: 30px 13px 32px; }
+  .counter > div { min-width: 58px; }
+  .heading { font-size: 42px; }
+}
 </style>
 </head>
 <body>
