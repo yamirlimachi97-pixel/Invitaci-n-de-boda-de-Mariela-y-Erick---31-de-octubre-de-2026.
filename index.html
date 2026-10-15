@@ -54,7 +54,7 @@
 <section class="section reveal"><div class="smallcaps">Nos acompañan en este día</div><h2 class="heading">Nuestros padrinos</h2><div class="cards"><div class="card"><h3>Padrinos de civil</h3><p><span class="rank">Sof. 2do.</span> Luis Alberto Apaza Cortes<br><span class="ornament">&amp;</span><br>Sra. Cecilia Solorzano</p></div><div class="card"><h3>Padrino de torta</h3><p>Lic. Erik Maquera Cañasto</p></div></div></section>
 <section class="section reveal"><div class="smallcaps">Falta muy poquito</div><h2 class="heading">Cuenta regresiva</h2><div class="counter" aria-label="Cuenta regresiva"><div><strong id="days">--</strong><span>Días</span></div><div><strong id="hours">--</strong><span>Horas</span></div><div><strong id="mins">--</strong><span>Minutos</span></div><div><strong id="secs">--</strong><span>Segundos</span></div></div><p class="bodycopy">¡Estamos contando los días para celebrar contigo!</p></section>
 <section class="section location reveal"><div class="smallcaps">Te esperamos</div><h2 class="heading">Nuestra celebración</h2><div class="card" style="max-width:480px;margin:auto"><h3>Salón de Eventos El Diamante</h3><p class="bodycopy" id="address">Sábado, 31 de octubre de 2026<br><strong>15:30hrs.</strong><br>Avenida Armentia y Pedro Kramer<br>Zona Terminal · La Paz, Bolivia</p><a class="gold-btn" id="mapBtn" href="https://www.google.com/maps/search/?api=1&amp;query=-16.48889%2C-68.1387698" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none;margin-top:12px">⌖ &nbsp; Cómo llegar</a></div></section>
-<section class="section rsvp-section reveal" id="confirmacion"><div class="smallcaps">✦ Erick &amp; Mariela ✦</div><h2 class="heading">Confirma tu asistencia</h2><div class="rsvp-card"><div class="rsvp-guest" id="rsvpGuest">Invitado especial</div><p class="bodycopy" style="font-size:21px">Nos encantaría contar contigo en nuestra boda civil.</p><div id="rsvpLoading" class="rsvp-note">Comprobando tu invitación…</div><div id="rsvpNoToken" class="rsvp-note" hidden>Para confirmar, abre el enlace personalizado que recibiste por WhatsApp.</div><div id="rsvpReady" hidden><p class="rsvp-note">Elige una opción. Podrás cambiarla más adelante desde este mismo enlace.</p><div class="rsvp-actions"><button class="gold-btn" type="button" data-answer="SI">♡ Sí, asistiré</button><button class="rsvp-no" type="button" data-answer="NO">No podré asistir</button></div></div><div id="rsvpDone" hidden><p class="rsvp-status" id="rsvpResult"></p><button class="rsvp-no" type="button" id="rsvpChange">Cambiar respuesta</button></div><p class="rsvp-error" id="rsvpError" role="alert" hidden></p></div></section>
+<section class="section rsvp-section reveal" id="confirmacion"><div class="smallcaps">✦ Erick &amp; Mariela ✦</div><h2 class="heading">Confirma tu asistencia</h2><div class="rsvp-card"><div class="rsvp-guest" id="rsvpGuest">Invitado especial</div><p class="bodycopy" style="font-size:21px">Nos encantaría contar contigo en nuestra boda civil.</p><div id="rsvpLoading" class="rsvp-note">Comprobando tu invitación…</div><div id="rsvpNoToken" class="rsvp-note" hidden>Para confirmar, abre el enlace personalizado que recibiste por WhatsApp.</div><div id="rsvpRetry" hidden><p class="rsvp-note">La conexión está tardando más de lo habitual. Tu enlace sigue siendo válido; puedes intentarlo nuevamente.</p><button class="rsvp-no" type="button" id="rsvpRetryButton">↻ Volver a intentar</button></div><div id="rsvpReady" hidden><p class="rsvp-note">Elige una opción. Podrás cambiarla más adelante desde este mismo enlace.</p><div class="rsvp-actions"><button class="gold-btn" type="button" data-answer="SI">♡ Sí, asistiré</button><button class="rsvp-no" type="button" data-answer="NO">No podré asistir</button></div></div><div id="rsvpDone" hidden><p class="rsvp-status" id="rsvpResult"></p><button class="rsvp-no" type="button" id="rsvpChange">Cambiar respuesta</button></div><p class="rsvp-error" id="rsvpError" role="alert" hidden></p></div></section>
 <footer class="footer">Con amor, <strong>Erick & Mariela</strong><div class="ornament">❧ ♡ ❧</div><small>31 de octubre de 2026</small></footer>
 </main>
 <button id="musicToggle" class="music" aria-label="Pausar o reproducir música" title="Pausar música">♫</button>
@@ -95,29 +95,51 @@ const observer=new IntersectionObserver(entries=>entries.forEach(x=>{if(x.isInte
 // RSVP: sustituye SOLO la URL siguiente por la de tu Google Apps Script publicado.
 const RSVP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_c_abUYPtKtVio4Qzn1GYaHa95InB4Css8m2pOi85nVeUgp1RR7EfJjnfa5WyvXF8Dw/exec';
 const RSVP_TOKEN = (new URLSearchParams(location.search).get('id') || '').trim();
-const rsvpEls = Object.fromEntries(['Loading','NoToken','Ready','Done','Error','Guest','Result'].map(k=>[k,document.getElementById('rsvp'+k)]));
-function rsvpShow(panel){['Loading','NoToken','Ready','Done'].forEach(k=>rsvpEls[k].hidden=k!==panel);}
+const rsvpEls = Object.fromEntries(['Loading','NoToken','Ready','Done','Retry','Error','Guest','Result'].map(k=>[k,document.getElementById('rsvp'+k)]));
+function rsvpShow(panel){['Loading','NoToken','Ready','Done','Retry'].forEach(k=>rsvpEls[k].hidden=k!==panel);}
 function rsvpError(message){rsvpEls.Error.textContent=message;rsvpEls.Error.hidden=false;}
 function rsvpClearError(){rsvpEls.Error.hidden=true;rsvpEls.Error.textContent='';}
 function rsvpJsonp(action){return new Promise((resolve,reject)=>{
   const cb='rsvp_cb_'+Math.random().toString(36).slice(2);const script=document.createElement('script');
-  let finished=false;const timer=setTimeout(()=>finish(new Error('Tiempo de espera agotado')),12000);
+  let finished=false;const timer=setTimeout(()=>finish(new Error('Tiempo de espera agotado')),10000);
   function finish(err,data){if(finished)return;finished=true;clearTimeout(timer);delete window[cb];script.remove();err?reject(err):resolve(data)}
   window[cb]=data=>finish(null,data);script.onerror=()=>finish(new Error('No se pudo conectar'));
   script.src=RSVP_SCRIPT_URL+'?action='+encodeURIComponent(action)+'&id='+encodeURIComponent(RSVP_TOKEN)+'&callback='+encodeURIComponent(cb)+'&v='+Date.now();document.head.appendChild(script);
 })}
-async function rsvpRefresh(){
-  if(!RSVP_TOKEN){rsvpShow('NoToken');return}
-  if(!RSVP_SCRIPT_URL.startsWith('https://script.google.com/macros/s/')){rsvpShow('NoToken');rsvpError('La confirmación aún no está habilitada.');return}
-  rsvpShow('Loading');rsvpClearError();
-  try{const data=await rsvpJsonp('status');if(!data.ok)throw new Error(data.error||'Invitación no encontrada');
-    rsvpEls.Guest.textContent=data.name||'Invitado especial';
-    document.getElementById('guestCover').textContent=data.name||'Nuestros seres queridos';
-    if(data.answer==='SI'||data.answer==='NO'){
-      rsvpEls.Result.textContent=data.answer==='SI'?'¡Gracias! Tu asistencia está confirmada.':'Gracias por avisarnos. Hemos registrado tu respuesta.';rsvpShow('Done');
-    }else rsvpShow('Ready');
-  }catch(e){rsvpShow('NoToken');rsvpError('No pudimos consultar tu invitación. '+e.message)}
+let rsvpChecking=false;
+function rsvpApplyStatus(data){
+  rsvpEls.Guest.textContent=data.name||'Invitado especial';
+  document.getElementById('guestCover').textContent=data.name||'Nuestros seres queridos';
+  if(data.answer==='SI'||data.answer==='NO'){
+    rsvpEls.Result.textContent=data.answer==='SI'?'¡Gracias! Tu asistencia está confirmada.':'Gracias por avisarnos. Hemos registrado tu respuesta.';
+    rsvpShow('Done');
+  }else rsvpShow('Ready');
 }
+async function rsvpRefresh(){
+  if(rsvpChecking)return;
+  if(!RSVP_TOKEN){rsvpShow('NoToken');return}
+  if(!RSVP_SCRIPT_URL.startsWith('https://script.google.com/macros/s/')){
+    rsvpShow('Retry');rsvpError('La confirmación aún no está habilitada.');return;
+  }
+  rsvpChecking=true;rsvpShow('Loading');rsvpClearError();
+  rsvpEls.Loading.textContent='Estamos preparando tu confirmación…';
+  try{
+    for(let attempt=0;attempt<3;attempt++){
+      try{
+        const data=await rsvpJsonp('status');
+        if(!data.ok){rsvpShow('Retry');rsvpError(data.error||'No encontramos esta invitación.');return;}
+        rsvpApplyStatus(data);return;
+      }catch(e){
+        if(attempt<2){
+          rsvpEls.Loading.textContent='La conexión está tardando un poquito. Volvemos a intentar…';
+          await new Promise(resolve=>setTimeout(resolve,1000));
+        }
+      }
+    }
+    rsvpShow('Retry');
+  }finally{rsvpChecking=false;}
+}
+document.getElementById('rsvpRetryButton').addEventListener('click',rsvpRefresh);
 // Envío POST mediante iframe oculto para evitar los bloqueos CORS de Apps Script.
 // Se comprueba la respuesta guardada en la hoja antes de mostrar éxito.
 let rsvpSending=false;
@@ -137,7 +159,7 @@ async function rsvpSubmit(answer){
     try{const data=await rsvpJsonp('status');if(data.ok&&data.answer===answer){saved=true;break}}catch(e){}
   }
   form.remove();setTimeout(()=>iframe.remove(),1000);
-  if(saved)await rsvpRefresh();else{rsvpShow('Ready');rsvpError('No pudimos comprobar que se guardó tu respuesta. Revisa tu conexión e inténtalo de nuevo.')}
+  if(saved){rsvpEls.Result.textContent=answer==='SI'?'¡Gracias! Tu asistencia está confirmada.':'Gracias por avisarnos. Hemos registrado tu respuesta.';rsvpShow('Done');}else{rsvpShow('Retry');rsvpError('No pudimos comprobar que se guardó tu respuesta. Antes de volver a confirmar, pulsa «Volver a intentar» para consultar si ya se registró.')}
   rsvpSending=false;
 }
 document.querySelectorAll('[data-answer]').forEach(b=>b.addEventListener('click',()=>rsvpSubmit(b.dataset.answer)));
